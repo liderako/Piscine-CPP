@@ -10,17 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
-FLAGS = -Wall -Wextra -Werror
+HEAD = Contact.class.hpp
 
-SRC = megaphone.cpp
+FLAGS = -Wall -Wextra #-Werror
+
+SRC =	Contact.class.cpp\
+		run.cpp\
 
 BINS = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(BINS)
+$(NAME): $(BINS) $(HEAD)
 	g++ -o $(NAME) $(BINS)
 
 %.o: %.cpp
