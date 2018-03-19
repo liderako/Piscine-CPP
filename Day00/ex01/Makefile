@@ -18,6 +18,7 @@ FLAGS = -Wall -Wextra #-Werror
 
 SRC =	Contact.class.cpp\
 		run.cpp\
+		DataBase.class.cpp\
 
 BINS = $(SRC:.cpp=.o)
 

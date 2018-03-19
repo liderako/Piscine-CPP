@@ -89,6 +89,7 @@ void 			Contact::setDarkestSecret( std::string s ) {
 }
 
 Contact::Contact( void ) {
+	this->login = "NULL";
 	return ;
 }
 
