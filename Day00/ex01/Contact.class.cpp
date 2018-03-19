@@ -45,47 +45,47 @@ std::string 	Contact::getDarkestSecret( void ) {
 }
 
 void			Contact::setFirstName( std::string s ) {
-	firstName = s;
+	this->firstName = s;
 }
 
 void 			Contact::setLastName( std::string s ) {
-	lastName = s;
+	this->lastName = s;
 }
 
 void 			Contact::setNickname( std::string s ) {
-	nickname = s;
+	this->nickname = s;
 }
 
 void 			Contact::setLogin( std::string s ) {
-	login = s;
+	this->login = s;
 }
 
 void 			Contact::setPostalAddress( std::string s ) {
-	postalAddress = s;
+	this->postalAddress = s;
 }
 
 void 			Contact::setEmailAddress( std::string s ) {
-	emailAddress = s;
+	this->emailAddress = s;
 }
 
 void 			Contact::setPhoneNumber( std::string s ) {
-	phoneNumber = s;
+	this->phoneNumber = s;
 }
 
 void 			Contact::setBirthdayDate( std::string s ) {
-	birthDayDate = s;
+	this->birthDayDate = s;
 }
 
 void 			Contact::setFavoriteMeal( std::string s ) {
-	favoriteMeal = s;
+	this->favoriteMeal = s;
 }
 
 void 			Contact::setUnderwearColor( std::string s ) {
-	underwearColor = s;
+	this->underwearColor = s;
 }
 
 void 			Contact::setDarkestSecret( std::string s ) {
-	darkestSecret = s;
+	this->darkestSecret = s;
 }
 
 Contact::Contact( void ) {
@@ -95,9 +95,3 @@ Contact::Contact( void ) {
 Contact::~Contact( void ) {
 	return ;
 }
-
-// class Contact {
-// 	public:
-// 		data[8];
-//
-// }
