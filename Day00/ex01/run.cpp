@@ -138,7 +138,6 @@ DataBase 	chooseCommand( std::string command, DataBase myBase ) {
 	}
 	else if (command == "SEARCH" ) {
 		search(myBase);
-		// std::cout << "some code\n";
 	}
 	else {
 		std::cout << "Unknown сommand, ";
