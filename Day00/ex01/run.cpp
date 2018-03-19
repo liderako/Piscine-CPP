@@ -108,7 +108,7 @@ void 	search( DataBase myBase ) {
 		std::cout << "\n";
 		i++;
 	}
-	std::cout << "\nSelect the contract index\n";
+	std::cout << "Select the contract index\n";
 	while (1) {
 		command = getText();
 		if ((ft_strlen(command)) > 1)
