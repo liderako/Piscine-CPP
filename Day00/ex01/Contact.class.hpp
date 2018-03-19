@@ -38,6 +38,7 @@ class Contact {
 		void 			setFavoriteMeal( std::string );
 		void 			setUnderwearColor( std::string );
 		void 			setDarkestSecret( std::string );
+		void 			infoContact();
 		Contact( void );
 		~Contact( void );
 };

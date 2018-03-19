@@ -8,7 +8,7 @@ void 		DataBase::setAmountContact( int x ) {
 	this->amountContact = x;
 }
 
-Contact 	DataBase::getBase( int id ) {
+Contact 	DataBase::getContact( int id ) {
 	return (this->base[id]);
 }
 

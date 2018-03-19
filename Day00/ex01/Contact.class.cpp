@@ -88,6 +88,20 @@ void 			Contact::setDarkestSecret( std::string s ) {
 	this->darkestSecret = s;
 }
 
+void 			Contact::infoContact() {
+	std::cout << "first name " << this->firstName << "\n";
+	std::cout << "last name " << this->lastName << "\n";
+	std::cout << "nickname " << this->nickname << "\n";
+	std::cout << "login " << this->login << "\n";
+	std::cout << "postal address " << this->postalAddress << "\n";
+	std::cout << "email address " << this->emailAddress << "\n";
+	std::cout << "phone number " << this->phoneNumber << "\n";
+	std::cout << "birthday date " << this->birthDayDate << "\n";
+	std::cout << "favorite meal " << this->favoriteMeal << "\n";
+	std::cout << "underwear color " << this->underwearColor << "\n";
+	std::cout << "darkest secret " << this->darkestSecret << "\n";
+}
+
 Contact::Contact( void ) {
 	this->login = "NULL";
 	return ;

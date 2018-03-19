@@ -12,7 +12,7 @@ class DataBase {
 	public:
 		int 		getAmountContact( );
 		void 		setAmountContact( int amount );
-		Contact 	getBase( int id );
+		Contact 	getContact( int id );
 		void		setBase( int id, Contact base );
 		int 		getFlag( void );
 		void 		setFlag( int flag );
