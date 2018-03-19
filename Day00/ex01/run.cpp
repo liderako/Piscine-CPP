@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Contact.class.hpp"
+#include "DataBase.class.hpp"
 
 std::string		getText() {
 	std::string 	input;
@@ -29,6 +29,7 @@ int 	chooseCommand(std::string command) {
 }
 
 int main( void ) {
+	DataBase 	myBase = DataBase();
 	std::string command;
 	int 		res;
 
