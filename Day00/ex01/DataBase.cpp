@@ -1,4 +1,4 @@
-#include "DataBase.class.hpp"
+#include "DataBase.hpp"
 
 int 		DataBase::getAmountContact() {
 	return (this->amountContact);
