@@ -14,7 +14,7 @@ NAME = phonebook
 
 HEAD = Contact.hpp
 
-FLAGS = -Wall -Wextra #-Werror
+FLAGS = -Wall -Wextra -Werror
 
 SRC =	Contact.cpp\
 		run.cpp\
