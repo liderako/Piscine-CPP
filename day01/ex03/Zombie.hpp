@@ -6,7 +6,7 @@
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/22 15:51:08 by asvirido          #+#    #+#             */
-/*   Updated: 2018/03/22 19:47:02 by asvirido         ###   ########.fr       */
+/*   Updated: 2018/03/22 19:51:24 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Zombie {
 		void 			announce( void );
 		void			setName( std::string name );
 		void			setType( std::string type );
-		std::string		getName( void );
-		std::string		getType( void );
+		std::string		getName( void ) const ;
+		std::string		getType( void ) const ;
 		Zombie & 		operator=(Zombie const & z);
 };
 

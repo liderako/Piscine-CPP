@@ -7,7 +7,7 @@ ZombieHorde::ZombieHorde( void ) {
 ZombieHorde::ZombieHorde( size_t size ) {
 	this->count = 0;
 	while ( this->count < size ) {
-//		this->z[this->count] = randomChump();
+		this->z[this->count] = randomChump();
 		this->count++;	
 	}
 }
