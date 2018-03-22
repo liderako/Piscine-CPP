@@ -6,14 +6,14 @@
 #    By: asvirido <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/04 14:27:54 by asvirido          #+#    #+#              #
-#    Updated: 2017/03/12 21:39:03 by asvirido         ###   ########.fr        #
+#    Updated: 2018/03/22 14:12:33 by asvirido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-HEAD = Contact.hpp
-
+HEAD = Contact.hpp\
+	   DataBase.hpp
 FLAGS = -Wall -Wextra -Werror
 
 SRC =	Contact.cpp\

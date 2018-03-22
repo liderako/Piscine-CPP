@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DataBase.class.hpp"
+#include "DataBase.hpp"
 
 int		ft_isdigit(int c)
 {
