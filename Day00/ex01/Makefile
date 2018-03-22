@@ -12,13 +12,13 @@
 
 NAME = phonebook
 
-HEAD = Contact.class.hpp
+HEAD = Contact.hpp
 
 FLAGS = -Wall -Wextra #-Werror
 
-SRC =	Contact.class.cpp\
+SRC =	Contact.cpp\
 		run.cpp\
-		DataBase.class.cpp\
+		DataBase.cpp\
 
 BINS = $(SRC:.cpp=.o)
 
