@@ -1,4 +1,4 @@
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 std::string 	Contact::getFirstName( void ){
 	return (firstName);
