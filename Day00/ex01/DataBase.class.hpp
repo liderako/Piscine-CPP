@@ -1,7 +1,7 @@
-#ifndef DATABASE_CLASS_H
-# define DATABASE_CLASS_H
+#ifndef DATABASE_H
+# define DATABASE_H
 #include <iostream>
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 class DataBase {
 	private:
