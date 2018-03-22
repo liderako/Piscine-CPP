@@ -1,5 +1,5 @@
-#ifndef CONTRACT_H
-# define CONTRACT_H
+#ifndef CONTRACT_HPP
+# define CONTRACT_HPP
 #include <iostream>
 
 class Contact {

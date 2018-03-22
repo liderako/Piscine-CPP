@@ -1,5 +1,5 @@
-#ifndef DATABASE_H
-# define DATABASE_H
+#ifndef DATABASE_HPP
+# define DATABASE_HPP
 #include <iostream>
 #include "Contact.hpp"
 

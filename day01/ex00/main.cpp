@@ -1,0 +1,12 @@
+#include <iostream>
+#include "Pony.hpp"
+
+int main(void)
+{
+	Pony heap = Pony("heap", "Hi, my name is ");
+	Pony *stack = new Pony("stack", "Hi, my name is ");
+
+	heap.ponyOnTheHeap();
+	stack->ponyOnTheStack();
+	delete stack;
+}
