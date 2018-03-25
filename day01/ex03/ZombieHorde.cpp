@@ -6,22 +6,19 @@ ZombieHorde::ZombieHorde( void ) {
 
 ZombieHorde::ZombieHorde( size_t size ) {
 	this->count = 0;
+	this->z = new Zombie[size];
 	while ( this->count < size ) {
-		this->z[this->count] = randomChump();
-		this->count++;	
+		this->z[this->count].setName( randomChump() );
+		this->z[this->count].setType( "default" );
+		this->count += 1;
 	}
 }
 
 ZombieHorde::~ZombieHorde( void ) {
-	return ;
+	delete [] z;
 }
 
-Zombie		*ZombieHorde::newZombie( std::string name ) {
-	Zombie *z = new Zombie( name, "default");
-	return (z);
-}
-
-Zombie		*ZombieHorde::randomChump( void ) {
+std::string		ZombieHorde::randomChump( void ) {
 	std::string 	base[6];
 
 	base[0] = "Anton";
@@ -30,12 +27,11 @@ Zombie		*ZombieHorde::randomChump( void ) {
 	base[3] = "Snow";
 	base[4] = "liderako";
 	base[5] = "github";
-	Zombie *z = ZombieHorde::newZombie( base[this->count % 6] );
-	return (z);
+	return ( base[this->count % 6] );
 }
 
 void		ZombieHorde::announce() {
-	for (int i = 0; i < this->count; i++) {
+	for (size_t i = 0; i < this->count; i++) {
 		this->z[i].announce();
 	}
 }

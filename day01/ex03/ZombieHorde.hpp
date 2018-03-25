@@ -18,10 +18,9 @@
 
 class ZombieHorde {
 	private:
-		int count;
+		size_t count;
 		Zombie *z;
-		Zombie *newZombie( std::string name );
-		Zombie *randomChump( void );
+		std::string randomChump( void );
 	public:
 		ZombieHorde( size_t size);
 		ZombieHorde( void );
@@ -29,4 +28,4 @@ class ZombieHorde {
 		void	announce( void );
 };
 
-#endif 
+#endif

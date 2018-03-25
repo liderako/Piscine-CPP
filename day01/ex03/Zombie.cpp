@@ -2,7 +2,7 @@
 
 Zombie::Zombie( void ) {
 	this->name = "default";
-	this->type = "default";	
+	this->type = "default";
 }
 
 Zombie::~Zombie( void ) {
@@ -42,4 +42,4 @@ Zombie &		Zombie::operator=(Zombie const & z) {
 	this->name = z.getName();
 	this->type = z.getType();
 	return *this;
-}	
+}

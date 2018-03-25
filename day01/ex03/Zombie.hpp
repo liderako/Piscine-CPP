@@ -32,4 +32,4 @@ class Zombie {
 		Zombie & 		operator=(Zombie const & z);
 };
 
-#endif 
+#endif
