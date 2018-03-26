@@ -6,7 +6,7 @@
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 16:36:57 by asvirido          #+#    #+#             */
-/*   Updated: 2018/03/26 16:51:32 by asvirido         ###   ########.fr       */
+/*   Updated: 2018/03/26 17:03:20 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class HumanA {
 
 	private:
 		std::string name;
-		Weapon 		weapon;
+		Weapon 		*weapon;
 	public:
 		HumanA( void );
 		~HumanA( void );
