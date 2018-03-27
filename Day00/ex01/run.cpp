@@ -3,7 +3,7 @@
 
 int		ft_isdigit(int c)
 {
-	if ((c >= '0') && (c <= '9'))
+	if ((c >= '1') && (c <= '9'))
 		return (1);
 	return (0);
 }
@@ -111,19 +111,25 @@ void 	search( DataBase myBase ) {
 	std::cout << "Select the contract index\n";
 	while (1) {
 		command = getText();
-		if ((ft_strlen(command)) > 1)
+		if ((ft_strlen(command)) > 1) {
 			std::cout << "Invalid index\n";
-		else if (command[0] < '0' && command[0] > '9' ){
+		}
+		else if (command[0] < '1' && command[0] > '9' ){
 			std::cout << "Invalid index\n";
 		}
 		else if (command[0] - 48 > myBase.getAmountContact()) {
 			std::cout << "Invalid index\n";
 		}
 		else {
-			int index = command[0] - 48;
-			Contact tmp1 = myBase.getContact(index - 1);
-			tmp1.infoContact();
-			break ;
+			int index = ft_atoi(command);
+			if (index > 0)
+			{
+				Contact tmp1 = myBase.getContact(index - 1);
+				tmp1.infoContact();
+				break ;
+			}
+			else
+				std::cout << "Invalid index" << '\n';
 		}
 	}
 	return ;
