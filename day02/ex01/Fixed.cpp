@@ -5,11 +5,11 @@ Fixed::Fixed(void) : decimals(8) {
 	this->rawBits = 0;
 }
 
-Fixed::Fixed(float value) : decimals(8) {
+Fixed::Fixed(float const value) : decimals(8) {
 	this->setRawBits(roundf(value * (float)(1 << this->decimals)));
 }
 
-Fixed::Fixed(int value) : decimals(8) {
+Fixed::Fixed(int const value) : decimals(8) {
 	this->rawBits = value << this->decimals;
 }
 
@@ -42,7 +42,7 @@ int 	Fixed::getRawBits(void) const {
 	return ( this->rawBits );
 }
 
-void	Fixed::setRawBits(int rawBits) {
+void	Fixed::setRawBits(int const rawBits) {
     std::cout << "setRawBits member function called" << "\n";
 	this->rawBits = rawBits;
 }

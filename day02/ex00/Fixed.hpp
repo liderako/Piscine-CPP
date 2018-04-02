@@ -6,7 +6,7 @@
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 18:24:38 by asvirido          #+#    #+#             */
-/*   Updated: 2018/03/27 19:34:58 by asvirido         ###   ########.fr       */
+/*   Updated: 2018/04/02 13:49:50 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed {
 		/* gets */
 			int getRawBits( void ) const ;
 		/* sets */
-			void setRawBits( int r );
+			void setRawBits( int const r );
 		/* operator */	
 		Fixed & operator=( Fixed const & f );
 
