@@ -7,18 +7,18 @@ int 	main() {
 	z.announce();
 
 	ZombieEvent factory;	
-	factory.setZombieType("fromFactory");
+	factory.setZombieType("alone");
 
 	Zombie *tmp = factory.newZombie("clone");
 	tmp->announce();
-	delete tmp;
-	
-	int i = 0;
-	while (i < 10 )
-	{
-		tmp = factory.randomChump();
-		tmp->announce();
-		delete tmp;
-		i++;
+	factory.setZombieType("fromFactory");
+	Zombie *random[9];
+	for (int i = 0; i < 9; ++i) {
+		random[i] = factory.randomChump();
+		random[i]->announce();
 	}
+	for (int i = 0; i < 9; ++i) {
+		delete (random[i]);
+	}
+		delete tmp;
 }

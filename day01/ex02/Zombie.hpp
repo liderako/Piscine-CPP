@@ -22,11 +22,13 @@ class Zombie {
 						Zombie( void );
 						Zombie( std::string name, std::string type );
 						~Zombie( void );
+						Zombie( Zombie const & zombie);
 		void 			announce( void );
 		void			setName( std::string name );
 		void			setType( std::string type );
-		std::string		getName( void );
-		std::string		getType( void );
+		std::string		getName( void )const ;
+		std::string		getType( void )const ;
+		Zombie & 		operator=(Zombie const & z);
 };
 
 #endif 
