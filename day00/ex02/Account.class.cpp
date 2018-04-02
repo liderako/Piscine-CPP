@@ -1,5 +1,6 @@
 #include "Account.class.hpp"
 #include <iostream>
+ #include <ctime>
 
 int Account::_totalAmount = 0;
 int	Account::_nbAccounts = 0;
@@ -7,9 +8,7 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit) {
-	// std::cout << Account::_totalAmount << "\n";
-	// _nbAccounts = 0;
-	// std::cout << getNbAccounts();
+	_displayTimestamp();
 	this->_accountIndex = _totalAmount;
 	this->_amount = initial_deposit;
 	std::cout << "index:" << this->_accountIndex << ";amount:" <<  this->_amount << ";created\n";
@@ -17,11 +16,44 @@ Account::Account(int initial_deposit) {
 }
 
 Account::Account(void) {
-	// _totalAmount = 0;
 }
 
 Account::~Account(void) {
 	std::cout << "index:" << this->_accountIndex << ";amount:" <<  this->_amount << ";closed\n";
+}
+
+void 	Account::_displayTimestamp() {
+	// time
+	time_t t = time(0);
+	struct tm * now = localtime( & t );
+	std::cout << "[" << now->tm_year + 1900; // year
+	
+	// mon
+	if (now->tm_mon < 10)
+		std::cout << '0' << now->tm_mon;
+	else
+		std::cout << now->tm_mon;
+	// day
+	if (now->tm_mday < 10)
+		std::cout << '0' << now->tm_mday << '_';
+	else
+		std::cout << now->tm_mday << "_";
+	// hour
+	if (now->tm_hour < 10)
+		std::cout << '0' << now->tm_hour;
+	else
+		std::cout << now->tm_hour;
+	// min
+	if (now->tm_min < 10)
+		std::cout << '0' << now->tm_min;
+	else
+		std::cout << now->tm_min;
+	// sec
+	if (now->tm_sec < 10)
+		std::cout << '0' << now->tm_sec;
+	else
+		std::cout << now->tm_sec;
+	std::cout << "] ";
 }
 
 int		Account::getNbAccounts( void ) {
