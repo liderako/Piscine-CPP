@@ -14,7 +14,8 @@
 #ifndef REPLACE_HPP
 # define REPLACE_HPP
 #include <iostream>
-#define NO 18446744073709551615
+#include <fstream>
+
 class 	Replace {
 	private:
 		std::string fileName;
@@ -33,6 +34,7 @@ class 	Replace {
 		std::string getS2(void);
 		std::string getFileName(void);
 		std::string getCreateFileName(void);
+		bool		replaceFile(void);
 		void 		validation(void);
 };
 

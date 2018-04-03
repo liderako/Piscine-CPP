@@ -57,3 +57,36 @@ void 	Replace::validation(void) {
 		std::exit(1);
 	}
 }
+
+bool	Replace::replaceFile(void) {
+	std::ifstream myFile(this->getFileName());
+	if (myFile.is_open()) {
+		std::string line;
+		std::fstream file;
+		file.open(this->getCreateFileName(), std::fstream::in | std::fstream::out | std::fstream::app);
+		while (std::getline(myFile, line)) {
+			while (1) {
+				size_t i = line.find(this->getS1());
+				if (i != std::string::npos) {
+					line.replace(i, this->getS1().length(), this->getS2());
+					for (size_t j = 0; j < i; j++) {
+						file << line[j];
+					}
+					std::string tmp = this->getS2();
+					for (size_t j = 0; j < tmp.length(); j++) {
+						file << tmp[j];
+					}
+					line = &line[i + this->getS2().length()];
+				}
+				else {
+					file << line << '\n';
+					break ;
+				}
+			}
+		}
+		file.close();
+		myFile.close();
+		return (true);
+	}
+	return (false);
+}
