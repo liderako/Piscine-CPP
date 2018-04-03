@@ -21,32 +21,32 @@ class FragTrap{
 		FragTrap(FragTrap const & f);
 		FragTrap(std::string name);
 // sets
-		void 		setHitPoints(size_t const x);
-		void 		setMaxHitPoints(size_t const x);
-		void 		setEnergyPoints(size_t const x);
-		void 		setMaxEnergyPoints(size_t const x);
-		void 		setLevel(size_t const x);
-		void 		setMeleeAttackDamage(size_t const x);
-		void 		setRangedAttackDamage(size_t const x);
-		void 		setArmorDamageReduction(size_t const x);
+		void 		setHitPoints(int const x);
+		void 		setMaxHitPoints(int const x);
+		void 		setEnergyPoints(int const x);
+		void 		setMaxEnergyPoints(int const x);
+		void 		setLevel(int const x);
+		void 		setMeleeAttackDamage(int const x);
+		void 		setRangedAttackDamage(int const x);
+		void 		setArmorDamageReduction(int const x);
 		void 		setName(std::string const s);
 // gets
-		size_t 		getHitPoints(void) const ;
-		size_t 		getMaxHitPoints(void) const ;
-		size_t 		getEnergyPoints(void) const ;
-		size_t 		getMaxEnergyPoints(void) const ;
-		size_t 		getLevel(void) const ;
-		size_t 		getMeleeAttackDamage(void) const ;
-		size_t 		getRangedAttackDamage(void) const ;
-		size_t 		getArmorDamageReduction(void) const ;
+		int 		getHitPoints(void) const ;
+		int 		getMaxHitPoints(void) const ;
+		int 		getEnergyPoints(void) const ;
+		int 		getMaxEnergyPoints(void) const ;
+		int 		getLevel(void) const ;
+		int 		getMeleeAttackDamage(void) const ;
+		int 		getRangedAttackDamage(void) const ;
+		int 		getArmorDamageReduction(void) const ;
 		std::string getName(void) const ;
 // operator 
 	FragTrap & operator=(FragTrap const & f);
 // action
-void 	rangedAttack(std::string const & target);
-void 	meleeAttack(std::string const & target);
-void 	takeDamage(unsigned int amount);
-void 	beRepaired(unsigned int amount);
+void 				 (std::string const & target);
+void 				meleeAttack(std::string const & target);
+void 				takeDamage(unsigned int amount);
+void 				beRepaired(unsigned int amount);
 }; 
 
 #endif
