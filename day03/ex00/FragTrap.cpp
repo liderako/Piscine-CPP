@@ -164,4 +164,11 @@ void 	FragTrap::takeDamage(unsigned int amount) {
 }
 
 void 	FragTrap::beRepaired(unsigned int amount) {
+	if (this->getEnergyPoints() <= 0)
+		return ;
+	this->setHitPoints(this->getHitPoints() + amount);
+	this->setEnergyPoints(this->getEnergyPoints - amount);
+	std::cout << "FR4G-TP" << " <" << this->getName() << "> ";
+	std::cout << "beRepaired" << " <" << amount << "> ";
+	std::cout << "hit of points !" << '\n';
 }
