@@ -167,8 +167,25 @@ void 	FragTrap::beRepaired(unsigned int amount) {
 	if (this->getEnergyPoints() <= 0)
 		return ;
 	this->setHitPoints(this->getHitPoints() + amount);
-	this->setEnergyPoints(this->getEnergyPoints - amount);
+	this->setEnergyPoints(this->getEnergyPoints() - amount);
 	std::cout << "FR4G-TP" << " <" << this->getName() << "> ";
 	std::cout << "beRepaired" << " <" << amount << "> ";
 	std::cout << "hit of points !" << '\n';
+}
+
+
+void 				FragTrap::vaulthunter_dot_exe(std::string const & target) {
+	std::string list[] = {"fire-ball", "show-ball", "ice-ball", "crazy-ball", "super rush"};
+	size_t 		listDamage[] = {42,21,30,50,99};
+	if (this->getEnergyPoints() < 25) {
+		std::cout << "Wow! You're not dead?\n";
+		return ;
+	}
+	this->setEnergyPoints(this->getEnergyPoints() - 25);
+	size_t list_size = 5;
+	size_t randI = rand() % list_size;
+	std::cout << "FR4G-TP" << " <" << this->getName() << "> ";
+	std::cout << "attacks" << " <" << target << "> ";
+	std::cout << list[randI] << " <" << listDamage[randI] << "> ";
+	std::cout << "points of damage !" << '\n';
 }
