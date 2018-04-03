@@ -15,7 +15,6 @@ int 	main() {
 	Zombie *random[9];
 	for (int i = 0; i < 9; ++i) {
 		random[i] = factory.randomChump();
-		random[i]->announce();
 	}
 	for (int i = 0; i < 9; ++i) {
 		delete (random[i]);
