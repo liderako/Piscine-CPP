@@ -80,19 +80,19 @@ bool	Fixed::operator!=(Fixed const & f) const {
 
 
 /* math */
-Fixed 	Fixed::operator+(Fixed const & f) {
+Fixed 	Fixed::operator+(Fixed const & f) const {
 	return (Fixed(this->toFloat() + f.toFloat()));
 }
 
-Fixed 	Fixed::operator-(Fixed const & f) {
+Fixed 	Fixed::operator-(Fixed const & f) const {
 	return (Fixed(this->toFloat() - f.toFloat()));
 }
 
-Fixed 	Fixed::operator*(Fixed const & f) {
+Fixed 	Fixed::operator*(Fixed const & f) const {
 	return (Fixed(this->toFloat() * f.toFloat()));
 }
 
-Fixed 	Fixed::operator/(Fixed const & f) {
+Fixed 	Fixed::operator/(Fixed const & f) const {
 	return (Fixed(this->toFloat() / f.toFloat()));
 }
 
