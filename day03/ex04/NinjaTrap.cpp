@@ -35,14 +35,14 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const & f) {
 // actions
 
 void 	NinjaTrap::rangedAttack(std::string const & target){
-	std::cout << "NinjaTrap:" << " <" << this->getName() << "> ";
+	std::cout << "Trap" << " <" << this->getName() << "> ";
 	std::cout << "attacks" << " <" << target << "> ";
 	std::cout << "at range, causing" << " <" << this->getMeleeAttackDamage() << "> ";
 	std::cout << "points of damage !" << '\n';
 }
 
 void 	NinjaTrap::meleeAttack(std::string const & target) {
-	std::cout << "NinjaTrap:" << " <" << this->getName() << "> ";
+	std::cout << "Trap" << " <" << this->getName() << "> ";
 	std::cout << "attacks" << " <" << target << "> ";
 	std::cout << "at melle, causing" << " <" << this->getRangedAttackDamage() << "> ";
 	std::cout << "points of damage !" << '\n';
@@ -51,7 +51,7 @@ void 	NinjaTrap::meleeAttack(std::string const & target) {
 void 	NinjaTrap::takeDamage(unsigned int amount) {
 	amount -= this->getArmorDamageReduction();
 	this->setHitPoints(this->getHitPoints() - amount);
-	std::cout << "NinjaTrap:" << " <" << this->getName() << "> ";
+	std::cout << "Trap" << " <" << this->getName() << "> ";
 	std::cout << "received" << " <" << amount << "> ";
 	std::cout << "points of damage !" << '\n';
 }
@@ -61,7 +61,7 @@ void 	NinjaTrap::beRepaired(unsigned int amount) {
 		return ;
 	this->setHitPoints(this->getHitPoints() + amount);
 	this->setEnergyPoints(this->getEnergyPoints() - amount);
-	std::cout << "NinjaTrap:" << " <" << this->getName() << "> ";
+	std::cout << "Trap" << " <" << this->getName() << "> ";
 	std::cout << "beRepaired" << " <" << amount << "> ";
 	std::cout << "hit of points !" << '\n';
 }
@@ -69,10 +69,10 @@ void 	NinjaTrap::beRepaired(unsigned int amount) {
 
 void 				NinjaTrap::ninjaShoebox(void) {
 	if (this->getEnergyPoints() < 25) {
-		std::cout << "NinjaTrap: Wow! WTF\n";
+		std::cout << "Trap Wow! WTF\n";
 		return ;
 	}
 	this->setEnergyPoints(this->getEnergyPoints() - 25);
-	std::cout << "NinjaTrap" << " <" << this->getName() << "> ";
+	std::cout << "Trap" << " <" << this->getName() << "> ";
 	std::cout << "ninja Shoe box" << "\n";
 }

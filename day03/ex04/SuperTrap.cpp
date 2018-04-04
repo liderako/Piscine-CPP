@@ -35,17 +35,11 @@ SuperTrap & SuperTrap::operator=(SuperTrap const & f) {
 // actions
 
 void 	SuperTrap::rangedAttack(std::string const & target){
-	std::cout << "SuperTrap:" << " <" << this->getName() << "> ";
-	std::cout << "attacks" << " <" << target << "> ";
-	std::cout << "at range, causing" << " <" << this->getMeleeAttackDamage() << "> ";
-	std::cout << "points of damage !" << '\n';
+	FragTrap::rangedAttack(target);
 }
 
 void 	SuperTrap::meleeAttack(std::string const & target) {
-	std::cout << "SuperTrap:" << " <" << this->getName() << "> ";
-	std::cout << "attacks" << " <" << target << "> ";
-	std::cout << "at melle, causing" << " <" << this->getRangedAttackDamage() << "> ";
-	std::cout << "points of damage !" << '\n';
+	NinjaTrap::meleeAttack(target);
 }
 
 void 	SuperTrap::takeDamage(unsigned int amount) {
@@ -64,31 +58,4 @@ void 	SuperTrap::beRepaired(unsigned int amount) {
 	std::cout << "SuperTrap:" << " <" << this->getName() << "> ";
 	std::cout << "beRepaired" << " <" << amount << "> ";
 	std::cout << "hit of points !" << '\n';
-}
-
-
-void 				SuperTrap::ninjaShoebox(void) {
-	if (this->getEnergyPoints() < 25) {
-		std::cout << "SuperTrap: Wow! WTF\n";
-		return ;
-	}
-	this->setEnergyPoints(this->getEnergyPoints() - 25);
-	std::cout << "SuperTrap" << " <" << this->getName() << "> ";
-	std::cout << "ninja Shoe box" << "\n";
-}
-
-void				SuperTrap::vaulthunter_dot_exe(std::string const & target) {
-	std::string list[] = {"fire-ball", "show-ball", "ice-ball", "crazy-ball", "super rush"};
-	size_t 		listDamage[] = {42,21,30,50,99};
-	if (this->getEnergyPoints() < 25) {
-		std::cout << "SuperTrap: Wow! You're not dead?\n";
-		return ;
-	}
-	this->setEnergyPoints(this->getEnergyPoints() - 25);
-	size_t list_size = 5;
-	size_t randI = rand() % list_size;
-	std::cout << "SuperTrap" << " <" << this->getName() << "> ";
-	std::cout << "attacks" << " <" << target << "> ";
-	std::cout << list[randI] << " <" << listDamage[randI] << "> ";
-	std::cout << "points of damage !" << '\n';
 }
