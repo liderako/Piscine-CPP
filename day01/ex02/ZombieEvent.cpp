@@ -28,7 +28,7 @@ Zombie		*ZombieEvent::randomChump( void ) {
 	base[4] = "liderako";
 	base[5] = "github";
 	Zombie *z = ZombieEvent::newZombie( base[this->count % 6] );
-	this->count++;
 	z->announce();
+	this->count++;
 	return (z);
 }

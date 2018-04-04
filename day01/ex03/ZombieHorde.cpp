@@ -5,13 +5,20 @@ ZombieHorde::ZombieHorde( void ) {
 }
 
 ZombieHorde::ZombieHorde( size_t size ) {
-	this->count = 0;
-	this->z = new Zombie[size];
-	while ( this->count < size ) {
-		this->z[this->count].setName( randomChump() );
-		this->z[this->count].setType( "default" );
-		this->count += 1;
+
+	try {
+		this->z = new Zombie[size];
+		while ( this->count < size ) {
+			this->z[this->count].setName( randomChump() );
+			this->z[this->count].setType( "default" );
+			this->count += 1;
+		}
 	}
+	catch(std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+		std::exit(-1);
+	}
+	this->count = 0;
 }
 
 ZombieHorde::~ZombieHorde( void ) {
