@@ -71,7 +71,7 @@ void 	ScavTrap::beRepaired(unsigned int amount) {
 void 				ScavTrap::challengeNewcomer(void) {
 	std::string list[] = {"jump", "fuck", "dead", "sit down", "super rush"};
 	if (this->getEnergyPoints() < 25) {
-		std::cout << "Wow! WTF\n";
+		std::cout << "ScavTrap: Wow! WTF\n";
 		return ;
 	}
 	this->setEnergyPoints(this->getEnergyPoints() - 25);

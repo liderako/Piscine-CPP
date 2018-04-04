@@ -71,7 +71,7 @@ void 				FragTrap::vaulthunter_dot_exe(std::string const & target) {
 	std::string list[] = {"fire-ball", "show-ball", "ice-ball", "crazy-ball", "super rush"};
 	size_t 		listDamage[] = {42,21,30,50,99};
 	if (this->getEnergyPoints() < 25) {
-		std::cout << "Wow! You're not dead?\n";
+		std::cout << "FragTrap: Wow! You're not dead?\n";
 		return ;
 	}
 	this->setEnergyPoints(this->getEnergyPoints() - 25);
