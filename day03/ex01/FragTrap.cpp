@@ -138,7 +138,6 @@ FragTrap & FragTrap::operator=(FragTrap const & f) {
 }
 
 // actions
-// //FR4G-TP <name> attacks <target> at range, causing <damage> points of damage !
 
 void 	FragTrap::rangedAttack(std::string const & target){
 	std::cout << "FR4G-TP" << " <" << this->getName() << "> ";
@@ -154,7 +153,6 @@ void 	FragTrap::meleeAttack(std::string const & target) {
 	std::cout << "points of damage !" << '\n';
 }
 
-// Когда вы наносите урон, вы должны учитывать снижение урона брони.
 void 	FragTrap::takeDamage(unsigned int amount) {
 	amount -= this->getArmorDamageReduction();
 	this->setHitPoints(this->getHitPoints() - amount);

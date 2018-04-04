@@ -48,7 +48,6 @@ void 	ScavTrap::meleeAttack(std::string const & target) {
 	std::cout << "points of damage !" << '\n';
 }
 
-// Когда вы наносите урон, вы должны учитывать снижение урона брони.
 void 	ScavTrap::takeDamage(unsigned int amount) {
 	amount -= this->getArmorDamageReduction();
 	this->setHitPoints(this->getHitPoints() - amount);
