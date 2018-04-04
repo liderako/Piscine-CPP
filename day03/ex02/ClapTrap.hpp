@@ -1,9 +1,9 @@
-#ifndef SCAPTRAP_HPP
-#define SCAPTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 
-class ScavTrap{
+class ClapTrap{
 	private:
 		size_t hitPoints;
 		size_t maxHitPoints;
@@ -16,10 +16,10 @@ class ScavTrap{
 		std::string name;
 	public:
 // construct and destruct
-		ScavTrap(void);
-		~ScavTrap(void);
-		ScavTrap(ScavTrap const & f);
-		ScavTrap(std::string name);
+		ClapTrap(void);
+		~ClapTrap(void);
+		ClapTrap(ClapTrap const & f);
+		ClapTrap(std::string name);
 // sets
 		void 		setHitPoints(int const x);
 		void 		setMaxHitPoints(int const x);
@@ -41,14 +41,7 @@ class ScavTrap{
 		int 		getArmorDamageReduction(void) const ;
 		std::string getName(void) const ;
 // operator 
-	ScavTrap & operator=(ScavTrap const & f);
-// action
-void 				rangedAttack(std::string const & target);
-void 				meleeAttack(std::string const & target);
-void 				takeDamage(unsigned int amount);
-void 				beRepaired(unsigned int amount);
-
-void 				challengeNewcomer(void);
+	ClapTrap & operator=(ClapTrap const & f);
 }; 
 
 #endif

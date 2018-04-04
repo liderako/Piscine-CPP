@@ -2,7 +2,7 @@
 
 // construct and destruct
 ScavTrap::ScavTrap(void) {
-	std::cout << "Yoo hoooooooooo!\n";
+	std::cout << "ScavTrap: Yoo hoooooooooo!\n";
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 50;
@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(void) {
 }
 
 ScavTrap::ScavTrap(std::string name) {
-	std::cout << "I'm over here!\n";
+	std::cout << "ScavTrap: I'm over here!\n";
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 50;
@@ -30,97 +30,13 @@ ScavTrap::ScavTrap(std::string name) {
 }
 
 ScavTrap::~ScavTrap(void) {
-	std::cout << "Rrrrrgh...this isn't working!\n";
+	std::cout << "ScavTrap: Rrrrrgh...this isn't working!\n";
 	return ;
 }
 
 ScavTrap::ScavTrap(ScavTrap const & f) {
-	std::cout << "I am the best robot. Yeah, yeah, yeah, I am the best robot. Ooh, ooh, here we go!\n";
+	std::cout << "ScavTrap: I am the best robot. Yeah, yeah, yeah, I am the best robot. Ooh, ooh, here we go!\n";
 	*this = f;
-}
-
-// sets
-void 		ScavTrap::setHitPoints(int x) {
-	if (x >= 0 && x <= this->getMaxHitPoints())
-		this->hitPoints = x;
-	else if (x >= this->getMaxHitPoints())
-		this->hitPoints = this->getMaxHitPoints();
-	else
-		this->hitPoints = 0;
-}
-
-void 		ScavTrap::setMaxHitPoints(int x) {
-	this->maxHitPoints = x;
-}
-
-void 		ScavTrap::setEnergyPoints(int x) {
-	if (x >= 0 && x <= this->getMaxHitPoints())
-		this->energyPoints = x;
-	else if (x >= this->getMaxHitPoints())
-		this->energyPoints = this->getMaxHitPoints();
-	else
-		this->energyPoints = 0;
-}
-
-void 		ScavTrap::setMaxEnergyPoints(int x) {
-	this->maxEnergyPoints = x;
-}
-
-void 		ScavTrap::setLevel(int x) {
-	this->level = x;
-}
-
-void 		ScavTrap::setMeleeAttackDamage(int x) {
-	this->meleeAttackDamage = x;
-}
-
-void 		ScavTrap::setRangedAttackDamage(int x) {
-	this->rangedAttackDamage = x;
-}
-
-void 		ScavTrap::setArmorDamageReduction(int x) {
-	this->armorDamageReduction = x;
-}
-
-void 		ScavTrap::setName(std::string s){
-	this->name = s;
-}
-
-// gets
-int 		ScavTrap::getHitPoints(void)  const {
-	return (this->hitPoints);
-}
-
-int 		ScavTrap::getMaxHitPoints(void) const  {
-	return (this->maxHitPoints);
-}
-
-int 		ScavTrap::getEnergyPoints(void)  const {
-	return (this->energyPoints);
-}
-
-int 		ScavTrap::getMaxEnergyPoints(void) const  {
-	return (this->maxEnergyPoints);
-}
-
-int 		ScavTrap::getLevel(void)  const {
-	return (this->level);
-}
-
-int 		ScavTrap::getMeleeAttackDamage(void)  const {
-	return (this->meleeAttackDamage);
-}
-
-int 		ScavTrap::getRangedAttackDamage(void)  const {
-	return (this->rangedAttackDamage);
-}
-
-int 		ScavTrap::getArmorDamageReduction(void)  const {
-	return (this->armorDamageReduction);
-}
-
-std::string ScavTrap::getName(void) const {
-	return (this->name);
 }
 
 // operator
