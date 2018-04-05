@@ -34,6 +34,7 @@ int main(){
 	}
 
 	NinjaTrap x("asvirido Ninja");
+	NinjaTrap bbb("asviridoTmp Ninja");
 
 	x.meleeAttack("liderako");
 	x.rangedAttack("tower");
@@ -41,10 +42,7 @@ int main(){
 	std::cout << "Hp " << x.getHitPoints() << '\n';
 	x.takeDamage(50);
 	std::cout << "HP " << x.getHitPoints() << '\n';
-	x.beRepaired(40);
-	std::cout << "Hp " << x.getHitPoints() << '\n';
-	std::cout << "Energy " << x.getEnergyPoints() << '\n';
-	for (int i = 0; i < 5; ++i){
-		x.ninjaShoebox ();
-	}
+	x.ninjaShoebox(d);
+	x.ninjaShoebox(f);
+	x.ninjaShoebox(bbb);
 }
