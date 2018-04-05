@@ -74,7 +74,7 @@ void 				NinjaTrap::ninjaShoebox(NinjaTrap const & target) {
 	}
 	this->setEnergyPoints(this->getEnergyPoints() - 25);
 	std::cout << "NinjaTrap" << " <" << this->getName() << "> ";
-	std::cout << "ninja Shoe box " << target.getName() << '\n';
+	std::cout << "ninja Shoe box NinjaTrap " << target.getName() << '\n';
 }
 
 void 				NinjaTrap::ninjaShoebox(FragTrap const & target) {
@@ -84,7 +84,7 @@ void 				NinjaTrap::ninjaShoebox(FragTrap const & target) {
 	}
 	this->setEnergyPoints(this->getEnergyPoints() - 25);
 	std::cout << "NinjaTrap" << " <" << this->getName() << "> ";
-	std::cout << "ninja Shoe box " << target.getName() << '\n';
+	std::cout << "ninja Shoe box FragTrap " << target.getName() << '\n';
 }
 
 void 				NinjaTrap::ninjaShoebox(ScavTrap const & target) {
@@ -94,5 +94,5 @@ void 				NinjaTrap::ninjaShoebox(ScavTrap const & target) {
 	}
 	this->setEnergyPoints(this->getEnergyPoints() - 25);
 	std::cout << "NinjaTrap" << " <" << this->getName() << "> ";
-	std::cout << "ninja Shoe box " << target.getName() << '\n';
+	std::cout << "ninja Shoe box ScavTrap " << target.getName() << '\n';
 }

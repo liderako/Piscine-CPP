@@ -1,11 +1,11 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed( void ) : decimals(8) {
+Fixed::Fixed( void ) {
 	std::cout << "Default constructor called" << "\n";
 	this->rawBits = 0;
 }
 
-Fixed::Fixed( Fixed const & fixed) : decimals(8) {
+Fixed::Fixed( Fixed const & fixed) {
 	std::cout << "Copy constructor called" << "\n";
 	*this = fixed;
 }

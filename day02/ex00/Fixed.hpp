@@ -18,7 +18,7 @@
 class Fixed {
 	private:
 		int rawBits;
-		int const decimals;
+		static int const decimals = 8;
 	public:
 		Fixed( void ); /* canonical */
 		Fixed( Fixed const & f ); /* canonical */
@@ -28,8 +28,7 @@ class Fixed {
 		/* sets */
 			void setRawBits( int const r );
 		/* operator */	
-		Fixed & operator=( Fixed const & f );
-
+		Fixed & operator=( Fixed const & f ); // canonical
 };
 
 #endif

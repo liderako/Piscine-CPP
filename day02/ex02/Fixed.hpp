@@ -18,7 +18,7 @@
 class Fixed {
 	private:
 		int rawBits;
-		int const decimals;
+		static int const decimals = 8;
 	public:
 		Fixed(void); /* canonical */
 		Fixed(Fixed const & f); /* canonical */
@@ -30,7 +30,7 @@ class Fixed {
 		int		toInt(void) const;
 		/* gets */
 		int getRawBits(void) const;
-
+		int getDecimals( void ) const ;
 		/* sets */
 		void setRawBits( int const r );
 		/* overload operators */

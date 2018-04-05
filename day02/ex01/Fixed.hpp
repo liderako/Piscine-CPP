@@ -18,7 +18,7 @@
 class Fixed {
 	private:
 		int rawBits;
-		int const decimals;
+		static int const decimals = 8;
 	public:
 		Fixed(void); /* canonical */
 		Fixed(Fixed const & f); /* canonical */

@@ -1,18 +1,18 @@
 #include "Fixed.hpp"
 #include <cmath>
-Fixed::Fixed(void) : decimals(8) {
+Fixed::Fixed(void) {
 	this->rawBits = 0;
 }
 
-Fixed::Fixed(float const value) : decimals(8) {
+Fixed::Fixed(float const value) {
 	this->setRawBits(roundf(value * (float)(1 << this->decimals)));
 }
 
-Fixed::Fixed(int const value) : decimals(8) {
+Fixed::Fixed(int const value) {
 	this->rawBits = value << this->decimals;
 }
 
-Fixed::Fixed(Fixed const & fixed) : decimals(8) {
+Fixed::Fixed(Fixed const & fixed) {
 	*this = fixed;
 }
 
