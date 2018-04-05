@@ -67,7 +67,27 @@ void 	NinjaTrap::beRepaired(unsigned int amount) {
 }
 
 
-void 				NinjaTrap::ninjaShoebox(void) {
+void 				NinjaTrap::ninjaShoebox(NinjaTrap const & target) {
+	if (this->getEnergyPoints() < 25) {
+		std::cout << "NinjaTrap: Wow! WTF\n";
+		return ;
+	}
+	this->setEnergyPoints(this->getEnergyPoints() - 25);
+	std::cout << "NinjaTrap" << " <" << this->getName() << "> ";
+	std::cout << "ninja Shoe box" << "\n";
+}
+
+void 				NinjaTrap::ninjaShoebox(FragTrap const & target) {
+	if (this->getEnergyPoints() < 25) {
+		std::cout << "NinjaTrap: Wow! WTF\n";
+		return ;
+	}
+	this->setEnergyPoints(this->getEnergyPoints() - 25);
+	std::cout << "NinjaTrap" << " <" << this->getName() << "> ";
+	std::cout << "ninja Shoe box" << "\n";
+}
+
+void 				NinjaTrap::ninjaShoebox(ScavTrap const & target) {
 	if (this->getEnergyPoints() < 25) {
 		std::cout << "NinjaTrap: Wow! WTF\n";
 		return ;

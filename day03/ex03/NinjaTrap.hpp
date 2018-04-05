@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 class NinjaTrap : public ClapTrap{
 	public:
@@ -20,7 +22,10 @@ void 				meleeAttack(std::string const & target);
 void 				takeDamage(unsigned int amount);
 void 				beRepaired(unsigned int amount);
 
-void 				ninjaShoebox(void);
+void 				ninjaShoebox(NinjaTrap const & target);
+void 				ninjaShoebox(FragTrap const & target);
+void 				ninjaShoebox(ScavTrap const & target);
+
 }; 
 
 #endif
