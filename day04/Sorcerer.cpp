@@ -50,6 +50,6 @@ std::ostream & operator<<(std::ostream & o, Sorcerer const & b) {
 
 // action
 
-void 	Sorcerer::polymorph(Victim const &) {
-	
+void 	Sorcerer::polymorph(Victim const &s) const {
+	s.getPolymorphed();
 }

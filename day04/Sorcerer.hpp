@@ -22,7 +22,7 @@ class Sorcerer {
 		/* operator */	
 		Sorcerer & operator=( Sorcerer const & f ); // canonical
 		// action 
-void 	polymorph(Victim const &);
+void 	polymorph(Victim const &) const ;
 };
 
 std::ostream & operator<<(std::ostream & o, Sorcerer const & b);
