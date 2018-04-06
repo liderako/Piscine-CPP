@@ -9,16 +9,16 @@ class Victim {
 	public:
 		Victim( void ); /* canonical */
 		Victim( Victim const & f ); /* canonical */
-		Victim(std::string name, std::string title);
+		Victim(std::string name);
 		~Victim( void ); /* canonical */
 		/* gets */
-			std::strign getName( void ) const ;
+			std::string getName( void ) const ;
 		/* sets */
 			void setName( std::string const s );
 		/* operator */	
 		Victim & operator=( Victim const & f ); // canonical
 		// action
-		void 	getPolymorphed() const;
+		virtual void	getPolymorphed() const;
 };
 
 std::ostream & operator<<(std::ostream & o, Victim const & b);

@@ -37,15 +37,15 @@ std::string 	Sorcerer::getTitle( void ) const {
 }
 
 void	Sorcerer::setTitle( std::string const s ) {
-	this->title = title;
+	this->title = s;
 }
 
 void	Sorcerer::setName( std::string const s ) {
-	this->name = name;
+	this->name = s;
 }
 
 std::ostream & operator<<(std::ostream & o, Sorcerer const & b) {
-	return (o << "I am ", this->getName() << ", " << this->getTitle() << ", and I like ponies !\n";);
+	return (o << "I am " << b.getName() << ", " << b.getTitle() << ", and I like ponies !\n");
 }
 
 // action

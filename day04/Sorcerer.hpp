@@ -14,8 +14,8 @@ class Sorcerer {
 		Sorcerer(std::string name, std::string title);
 		~Sorcerer( void ); /* canonical */
 		/* gets */
-			std::strign getName( void ) const ;
-			std::strign getTitle( void ) const ;
+			std::string getName( void ) const ;
+			std::string getTitle( void ) const ;
 		/* sets */
 			void setName( std::string const s );
 			void setTitle( std::string const s );

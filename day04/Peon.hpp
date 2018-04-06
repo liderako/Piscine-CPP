@@ -2,8 +2,9 @@
 # define PEON_HPP
 
 #include <iostream>
+#include "Victim.hpp"
 
-class Peon {
+class Peon : public Victim{
 	public:
 		Peon(void); /* canonical */
 		Peon(Peon const & f); /* canonical */
@@ -11,8 +12,7 @@ class Peon {
 		~Peon(void); /* canonical */
 		/* operator */	
 		Peon & operator=( Peon const & f ); // canonical
-		// action
-		void 	getPolymorphed() const;
+		void	getPolymorphed() const;
 };
 
 std::ostream & operator<<(std::ostream & o, Peon const & b);

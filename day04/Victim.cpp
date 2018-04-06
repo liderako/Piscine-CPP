@@ -2,21 +2,21 @@
 
 Victim::Victim( void ) {
 	this->name = "default name";
-	std::cout << "Some random victim called " << this.getName() << " just popped\n";
+	std::cout << "Some random victim called " << this->getName() << " just popped\n";
 }
 
 Victim::Victim( Victim const & Victim) {
 	*this = Victim;
-	std::cout << "Some random victim called " << this.getName() << " just popped\n";
+	std::cout << "Some random victim called " << this->getName() << " just popped\n";
 }
 
 Victim::Victim( std::string name ) {
 	this->name = name;
-	std::cout << "Some random victim called " << this.getName() << " just popped\n";
+	std::cout << "Some random victim called " << this->getName() << " just popped\n";
 }
 
 Victim::~Victim( void ) {
-	std::cout << "Victim " << this.getName() << " just died for no apparent reason !\n";
+	std::cout << "Victim " << this->getName() << " just died for no apparent reason !\n";
 	return ;
 }
 
@@ -30,11 +30,11 @@ std::string 	Victim::getName( void ) const {
 }
 
 void	Victim::setName( std::string const s ) {
-	this->name = name;
+	this->name = s;
 }
 
 std::ostream & operator<<(std::ostream & o, Victim const & b) {
-	return (o << "I'm ", this->getName() << " and I like otters !\n";);
+	return (o << "I'm " <<  b.getName() << " and I like otters !\n");
 }
 
 void 	Victim::getPolymorphed() const {
