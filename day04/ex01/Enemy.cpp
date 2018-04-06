@@ -20,7 +20,7 @@ Enemy::~Enemy( void ) {
 
 Enemy & Enemy::operator=( Enemy const & enemy ) {
 	this->type = Enemy.getType();
-	this->hp = Enemy.getHp();
+	this->hp = Enemy.getHP();
 	return *this;
 }
 
@@ -28,7 +28,7 @@ std::string	Enemy::getType() const {
 	return (this->type);
 }
 
-int 		Enemy::getHp() const {
+int 		Enemy::getHP() const {
 	return (this->apCost);
 }
 

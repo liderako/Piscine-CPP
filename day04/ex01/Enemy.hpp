@@ -16,7 +16,7 @@ protected:
 
 		// gets
 		std::string	getType() const;
-		int 		getHp() const;
+		int 		getHP() const;
 
 		/* operator */	
 		Enemy & operator=( Enemy const & f ); // canonical
