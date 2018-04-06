@@ -36,3 +36,7 @@ void	Victim::setName( std::string const s ) {
 std::ostream & operator<<(std::ostream & o, Victim const & b) {
 	return (o << "I'm ", this->getName() << " and I like otters !\n";);
 }
+
+void 	Victim::getPolymorphed() const {
+	std::cout << this->getName() << " has been turned into a cute little sheep !\n";
+}

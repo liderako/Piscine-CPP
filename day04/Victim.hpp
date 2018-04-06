@@ -17,6 +17,8 @@ class Victim {
 			void setName( std::string const s );
 		/* operator */	
 		Victim & operator=( Victim const & f ); // canonical
+		// action
+		void 	getPolymorphed() const;
 };
 
 std::ostream & operator<<(std::ostream & o, Victim const & b);

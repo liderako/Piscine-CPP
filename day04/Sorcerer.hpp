@@ -2,6 +2,7 @@
 # define SORCERER_HPP
 
 #include <iostream>
+#include "Victim.hpp"
 
 class Sorcerer {
 	private:
@@ -20,6 +21,8 @@ class Sorcerer {
 			void setTitle( std::string const s );
 		/* operator */	
 		Sorcerer & operator=( Sorcerer const & f ); // canonical
+		// action 
+void 	polymorph(Victim const &);
 };
 
 std::ostream & operator<<(std::ostream & o, Sorcerer const & b);

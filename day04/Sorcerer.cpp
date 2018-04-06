@@ -47,3 +47,9 @@ void	Sorcerer::setName( std::string const s ) {
 std::ostream & operator<<(std::ostream & o, Sorcerer const & b) {
 	return (o << "I am ", this->getName() << ", " << this->getTitle() << ", and I like ponies !\n";);
 }
+
+// action
+
+void 	Sorcerer::polymorph(Victim const &) {
+	
+}
