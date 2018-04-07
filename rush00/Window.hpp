@@ -4,11 +4,22 @@
 #include <iostream>
 #include <ncurses.h>
 
+#define MAX_SIZE_X 364
+#define MAX_SIZE_Y 84
+
 class Win {
 	private:
 		int 	height;
 		int 	width;
+		int 	startXFlame;
+		int 	endXFlame;
+		int 	startYFlame;
+		int 	endYFlame;
+		char	map[85][385];
 		WINDOW *win;
+		void 	initMap(void);
+		bool 	endHorizontX(int x, int y);
+		bool 	endHorizontY(int x, int y);	
 	public:
 		/* construct and destruct */
 		Win( void ); /* canonical */
@@ -25,7 +36,8 @@ class Win {
 			void setHeight( int const r );
 			// void setWINDOW( WINDOW *w );
 		/* actions */
-			void updateHorizont();
+			void 	updateHorizont(void);
+			void 	updateDisplay(void);
 };
 
 #endif

@@ -21,8 +21,8 @@ Ncurses & Ncurses::operator=( Ncurses const & ncurses ) {
 	return *this;
 }
 
-void 	Ncurses::getCh() {
-	getch();
+int 	Ncurses::getCh() {
+	return (getch());
 }
 
 void 	Ncurses::updateWindow(WINDOW *w) {

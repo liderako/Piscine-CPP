@@ -13,13 +13,15 @@
 NAME = ft_retro
 
 HEAD = Window.hpp\
-		Ncurses.hpp
+		Ncurses.hpp\
+		Vector2.hpp\
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -c
 
 SRC =	main.cpp\
 		Window.cpp\
 		Ncurses.cpp\
+		Vector2.cpp\
 
 BINS = $(SRC:.cpp=.o)
 
