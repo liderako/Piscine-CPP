@@ -15,6 +15,10 @@ NAME = ft_retro
 HEAD = Window.hpp\
 		Ncurses.hpp\
 		Vector2.hpp\
+		GameObject.hpp\
+		Player.hpp\
+		Frame.hpp\
+		Asteroid.hpp\
 
 FLAGS = -c
 
@@ -22,6 +26,10 @@ SRC =	main.cpp\
 		Window.cpp\
 		Ncurses.cpp\
 		Vector2.cpp\
+		GameObject.cpp\
+		Player.cpp\
+		Frame.cpp\
+		Asteroid.cpp\
 
 BINS = $(SRC:.cpp=.o)
 
