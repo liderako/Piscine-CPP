@@ -31,10 +31,6 @@ Vector2 	GameObject::getPosition() const {
 	return (this->position);
 }
 
-int 	GameObject::attacks() {
-	return (this->attack);
-}
-
 int 		GameObject::getSpeed() const {
 	return (this->speed);
 }

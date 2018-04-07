@@ -74,21 +74,40 @@ void 	Win::updateHorizont() {
 void 	Win::updatePositionPlayer(Player &p, int key) {
 	if (key == 'w' && (p.moveUp()) == true) {
 		this->map[p.getPosition().getY() + p.getSpeed()][p.getPosition().getX()] = ' ';
+		this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
 	}
 	else if (key == 's' && (p.moveDown()) == true) {
 		this->map[p.getPosition().getY() - p.getSpeed()][p.getPosition().getX()] = ' ';
+		this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
 	}
 	else if (key == 'a' && (p.moveLeft()) == true) {
 		this->map[p.getPosition().getY()][p.getPosition().getX() + p.getSpeed()] = ' ';
+		this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
 	}
 	else if (key == 'd' && (p.moveRigth()) == true) {
 		this->map[p.getPosition().getY()][p.getPosition().getX() - p.getSpeed()] = ' ';
+		this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
 	}
-	this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
+	else if (key == ' ') {
+		if (p.getCountTime() >= 3) {
+			this->map[p.getPosition().getY() - 1][p.getPosition().getX()] = '^';
+			p.setCountTime(0);
+		}
+	}
 }
 
 
 void 	Win::updatePositionObjcet(Player &p) {
+	for (int y = 1; y < this->height; y++) {
+		for (int x = 1; x < this->width; x++) {
+			if (this->map[y][x] == '^' && y < 10)
+				this->map[y][x] = ' ';
+			else if (this->map[y][x] == '^' && this->map[y - 1][x] == ' ') {
+				this->map[y - 1][x] = '^';
+				this->map[y][x] = ' ';
+			}
+		}
+	}
 	for (int i = 0; i < COUNT_ASTEROID; i++) {
 		if ((this->asteroid[i].moveDown()) == true) {
 			this->map[this->asteroid[i].getPosition().getY() - 1][this->asteroid[i].getPosition().getX()] = ' ';
@@ -97,11 +116,13 @@ void 	Win::updatePositionObjcet(Player &p) {
 				this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] = p.getSymbol();
 				this->asteroid[i].dead();
 			}
+			else if (this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] == '^') {
+				this->asteroid[i].dead();
+			}
 			else
 				this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] = this->asteroid[i].getSymbol();
 		}
 	}
-
 }
 
 void 	Win::updateDisplay() {
@@ -162,6 +183,9 @@ void 	Win::initMap() {
 				}
 				else if (rand() % 444 == 0) {
 					this->map[y][x] = ',';
+				}
+				else if (rand() % 133 == 0) {
+					this->map[y][x] = '.';
 				}
 			}
 			x++;

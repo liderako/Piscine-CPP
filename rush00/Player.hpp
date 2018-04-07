@@ -6,9 +6,11 @@
 
 class Player : public GameObject{
 private:
-	Frame frame;
+	Frame 	frame;
+	int 	countTime;
+	int 	damage;
+	int 	timeout;
 public:
-	Player(Vector2 const & position);
 	Player(void);
 	~Player(void);
 	Player( Player const & f ); /* canonical */
@@ -18,7 +20,10 @@ public:
 	bool		moveDown();
 	bool		moveUp();
 
+	int 		getDamage();
+	int 		getCountTime();
 	void 		takeDamage(int damage);
+	void 		setCountTime(int c);
 };
 
 #endif

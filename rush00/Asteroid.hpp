@@ -21,6 +21,7 @@ public:
 	void		dead(void);
 	void 		setPosX(int const x);
 	void 		setPosY(int const x);
+	int 		attacks();
 };
 
 #endif

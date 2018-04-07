@@ -33,7 +33,6 @@ public:
 	virtual bool		moveLeft() = 0;
 	virtual bool		moveDown() = 0;
 	virtual bool		moveUp() = 0;
-	int 				attacks();
 };
 
 #endif

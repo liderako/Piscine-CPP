@@ -1,10 +1,10 @@
 #include "Asteroid.hpp"
 #include "ncurses.h"
-Asteroid::Asteroid(void) : GameObject(Vector2(0, 0), 1, '#', 10, 15) {
+Asteroid::Asteroid(void) : GameObject(Vector2(0, 0), 1, '#', 10, 50) {
 	return ;
 }
 
-Asteroid::Asteroid(int xSpawn, int ySpawn) : GameObject(Vector2(xSpawn, ySpawn), 1, '#', 10, 15) {
+Asteroid::Asteroid(int xSpawn, int ySpawn) : GameObject(Vector2(xSpawn, ySpawn), 1, '#', 10, 50) {
 	return ;
 }
 
@@ -59,6 +59,11 @@ void	Asteroid::dead(void) {
 	this->setPosX(rand() % 30);
 	this->setPosY((rand() % 2) + 3);
 }
+
+int 	Asteroid::attacks() {
+	return (this->attack);
+}
+
 
 void 	Asteroid::setPosY(int const x) {
 	this->position.setY(x);

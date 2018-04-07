@@ -13,9 +13,10 @@ int 	main(void) {
   	window.updatePositionPlayer(p, 0);
   	window.updateDisplay();
   	while (1) {
+		p.setCountTime(p.getCountTime() + 1);
   		timeout(300);
   		int key = getch();
-   		if (key == 'w' || key == 's' || key == 'a' || key == 'd'){
+   		if (key == 'w' || key == 's' || key == 'a' || key == 'd' || key == ' '){
   			window.updatePositionPlayer(p, key);
   		}
   		window.updatePositionObjcet(p);

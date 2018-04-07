@@ -1,15 +1,12 @@
 #include "Player.hpp"
 
-Player::Player(Vector2 const & position) : GameObject(position) {
-	return ;
-}
-
-Player::Player(void) : GameObject(Vector2(150, 70), 1, 'H', 100, 0) {
-	return ;
+Player::Player(void) : GameObject(Vector2(150, 70), 2, 'H', 100, 0) {
+	this->damage = 5;
+	this->timeout = 5;
+	this->countTime = 0;
 }
 
 Player::~Player(void) {
-	return ;
 }
 
 Player::Player( Player const & f ) {
@@ -54,6 +51,10 @@ bool		Player::moveDown() {
 	return false;
 }
 
+void 		Player::setCountTime(int x) {
+	this->countTime = x;
+}
+
 bool		Player::moveUp() {
 	int y;
 
@@ -79,4 +80,12 @@ void 		Player::takeDamage(int damage) {
 			this->hp -= damage;
 		}
 	}
+}
+
+int 		Player::getDamage() {
+	return (this->damage);
+}
+
+int 		Player::getCountTime() {
+	return (this->countTime);
 }
