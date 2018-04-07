@@ -128,7 +128,8 @@ void 	Win::updatePositionObjcet(Player &p) {
 void 	Win::updateDisplay() {
 	int 	y;
 	int 	x;
-
+	//printf("\r%s%s%d%s%s", GREEN, "Loading ",
+				// RT->loading_progress, "%", RESET);
 	y = 0;
 	while (y < this->height) {
 		x = 0;

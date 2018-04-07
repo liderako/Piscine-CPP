@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-Player::Player(void) : GameObject(Vector2(150, 70), 2, 'H', 100, 0) {
+Player::Player(void) : GameObject(Vector2(150, 70), 1, 'H', 100, 0) {
 	this->damage = 5;
 	this->timeout = 5;
 	this->countTime = 0;

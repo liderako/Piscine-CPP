@@ -11,7 +11,7 @@
 #define MAX_SIZE_X 364
 #define MAX_SIZE_Y 84
 #define COUNT_ASTEROID 100
-
+# define GREEN "\033[32;1m"
 class Win {
 	private:
 		// var
