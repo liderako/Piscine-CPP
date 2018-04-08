@@ -23,10 +23,13 @@ public:
 	int 		getSpeed() const ;
 	int 		getSymbol() const ;
 	int 		getHp() const ;
+	int 		getAttack() const ;
 
 	void 		setHp(int const hp);
 	void		setPosition(Vector2 const & p);
 	void 		setSymbol(int s);
+	void 		setAttack(int attack);
+
 
 	virtual void 		takeDamage(int damage) = 0;
 	virtual bool 		moveRigth() = 0;

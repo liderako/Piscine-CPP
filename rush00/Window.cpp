@@ -2,8 +2,7 @@
 #include <ncurses.h>
 #include <sstream>
 /* construct and destruct */
-Win::Win( void ) : frameStatic(100, 250, 90, 100) {
-	char s[] = {'#','$', '@', '%', '&', 'B', 'D'};
+Win::Win( void ) : frameStatic(100, 250, 89, 100) {
 	getmaxyx(stdscr, this->height, this->width);
 	if (this->height != MAX_SIZE_Y || this->width != MAX_SIZE_X){
 		endwin();
@@ -12,16 +11,9 @@ Win::Win( void ) : frameStatic(100, 250, 90, 100) {
 		std::exit(-1);
 	}
 	this->win = newwin(this->height, this->width, 0, 0);
-	
-	this->downWin = newwin(250, 100, 100, 90);
-
 	this->asteroid = new Asteroid[COUNT_ASTEROID];
-	for (int i = 0; i < COUNT_ASTEROID; i++) {
-		this->asteroid[i].setPosX(i);
-		int res = (rand() % (70));
-		this->asteroid[i].setPosY(res);
-		this->asteroid[i].setSymbol(s[rand() % 6]);
-	}
+	this->maxScope = 5000;
+	this->initAsteroid();
 	initMap();
 }
 
@@ -30,6 +22,7 @@ Win::Win( Win const & window) {
 }
 
 Win::~Win( void ) {
+	delete [] asteroid;
 	return ;
 }
 
@@ -52,6 +45,10 @@ int 	Win::getHeight(void) const {
 
 int 	Win::getWidth(void) const {
 	return (this->width);
+}
+
+int 	Win::getMaxScope() const {
+	return (this->maxScope);
 }
 
 Asteroid 	*Win::getAsteroids(void) const {
@@ -111,6 +108,7 @@ void 	Win::updatePositionObjcet(Player &p) {
 			}
 		}
 	}
+	this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
 	for (int i = 0; i < COUNT_ASTEROID; i++) {
 		if ((this->asteroid[i].moveDown()) == true) {
 			this->map[this->asteroid[i].getPosition().getY() - 1][this->asteroid[i].getPosition().getX()] = ' ';
@@ -120,7 +118,14 @@ void 	Win::updatePositionObjcet(Player &p) {
 				this->asteroid[i].dead();
 			}
 			else if (this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] == '^') {
-				this->asteroid[i].dead();
+				this->asteroid[i].takeDamage(p.getAttack());
+				if (this->asteroid[i].getHp() == 0) {
+					this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] = ' ';
+					this->asteroid[i].dead();
+				}
+				else {
+					this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] = this->asteroid[i].getSymbol();
+				}
 			}
 			else
 				this->map[this->asteroid[i].getPosition().getY()][this->asteroid[i].getPosition().getX()] = this->asteroid[i].getSymbol();
@@ -128,78 +133,113 @@ void 	Win::updatePositionObjcet(Player &p) {
 	}
 }
 
-void 	Win::render() {
+void 	Win::render(Player &p) {
 	int 	y;
 	int 	x;
-	int 	flag = 0;
 
 	y = 0;
 	while (y < this->height) {
 		x = 0;
 		while (x < this->width) {
 			if ((this->frame.endHorizontX(x, y)) == true) {
-				attron(COLOR_PAIR(5));
-				printw("_");
-				attroff(COLOR_PAIR(5));
+				this->putColor('_',5);
 			}
 			else if ((this->frame.endHorizontY(x, y)) == true) {
-				attron(COLOR_PAIR(5));
-				printw("|");
-				attroff(COLOR_PAIR(5));
+				this->putColor('|',5);
 			}
-			else if ((this->frameStatic.endHorizontX(x, y)) == true ) {
-				printw("_");
+			else if ((this->frameStatic.endHorizontX(x, y)) == true) {
+				this->putColor('_',5);
 			}
 			else if ((this->frameStatic.endHorizontY(x, y)) == true) {
-				printw("|");
+				this->putColor('|',5);
 			}
 			else if (y > this->frame.getEndY() - 2 && y < this->frameStatic.getStartY() + 1 && x >= this->frame.getStartX() && x <= this->frame.getEndX()) {
 				printw(" ");
 			}
 			else {
 				if (this->map[y][x] == ','){
-					attron(COLOR_PAIR(3));
-					printw("%c", this->map[y][x]);
-					attroff(COLOR_PAIR(3));
+					this->putColor(',',3);
 				}
 				else if (this->map[y][x] == '*') {
-					attron(COLOR_PAIR(2));
-					printw("%c", this->map[y][x]);
-					attroff(COLOR_PAIR(2));
+					this->putColor('*',2);
 				}
 				else if (this->map[y][x] == '.') {
-					attron(COLOR_PAIR(1));
-					printw("%c", this->map[y][x]);
-					attroff(COLOR_PAIR(1));
+					this->putColor('.',1);
 				}
 				else if (y >= this->frameStatic.getStartY() && y < this->frameStatic.getEndY() && x >= this->frameStatic.getStartX() && x <= this->frameStatic.getEndX()) {
 					if (x - 2 == this->frameStatic.getStartX() && y - 2 == this->frameStatic.getStartY()) {
-						printw("Scope: %10d",10);
-						x += 16;
+						printw("Scope: %13d",p.getScope());
+						x += 19;
 					}
 					else if (x - 2 == this->frameStatic.getStartX() && y - 4 == this->frameStatic.getStartY()) {
-						printw("life: %11d",10);
-						x += 16;
+						printw("life: %14d",p.getLife());
+						x += 19;
 					}
 					else if (x - 2 == this->frameStatic.getStartX() && y - 6 == this->frameStatic.getStartY()) {
-						printw("Hp: %13d",10);
-						x += 16;
+						printw("Hp: %16d",p.getHp());
+						x += 19;
 					}
 					else if (x - 2 == this->frameStatic.getStartX() && y - 8 == this->frameStatic.getStartY()) {
-						printw("Ammo: %11d",10);
-						x += 16;
+						printw("Ammo: %14d",p.getAmmo());
+						x += 19;
+					}
+					else if (x - 2 == this->frameStatic.getStartX() && y - 10 == this->frameStatic.getStartY()) {
+						printw("Finish Scope: %6d",this->maxScope);
+						x += 19;
+					}
+					else if (x - 44 == this->frameStatic.getStartX() && y - 4 == this->frameStatic.getStartY()) {
+						printw("W A S D : Move");
+						x += 13;
+					}
+					else if (x - 44 == this->frameStatic.getStartX() && y - 6 == this->frameStatic.getStartY()) {
+						printw("Space: Fire");
+						x += 10;
+					}
+					else if (x - 44 == this->frameStatic.getStartX() && y - 8 == this->frameStatic.getStartY()) {
+						printw("ESC: Exit");
+						x += 8;
+					}
+					else if (x - 82 == this->frameStatic.getStartX() && y - 6 == this->frameStatic.getStartY()) {
+						printw("Target of the game: Stay alive 5000 light years");
+						x += 46;
 					}
 					else {
 						printw(" ");
 					}
 				}
 				else {
-					printw("%c", this->map[y][x]);
+					if (this->map[y][x] == '#' ||  this->map[y][x] == '$') {
+						this->putColor(this->map[y][x], 2);
+					}
+					else if (this->map[y][x] == '@' ||  this->map[y][x] == '%') {
+						this->putColor(this->map[y][x], 1);
+					}
+					else if (this->map[y][x] == '&' ||  this->map[y][x] == 'B') {
+						this->putColor(this->map[y][x], 6);
+					}
+					else if (this->map[y][x] == p.getSymbol()) {
+						attron(A_BOLD);
+						printw("%c",p.getSymbol());
+						attroff(A_BOLD);
+					}
+					else 
+						printw("%c", this->map[y][x]);
 				}
 			}
 			x++;
 		}
 		y++;
+	}
+}
+
+void 	Win::checkSize() {
+  	int x = 0;
+  	int y = 0;
+	getmaxyx(stdscr, y, x);
+	if (this->getHeight() != y || this->getWidth() != x) {
+		endwin();
+		std::cout << "Don't touch window! Pidor\n";
+		std::exit(-1);
 	}
 }
 
@@ -248,15 +288,26 @@ void 	Win::initMap() {
 }
 
 
+void 	Win::putColor(char c, int color) {
+		attron(COLOR_PAIR(color));
+		printw("%c", c);
+		attroff(COLOR_PAIR(color));
+}
 
 
+void 	Win::initAsteroid(void) {
+	char sAsteroid[] = {'#','$', '@', '%', '&', 'B'};
+	int  hpAsteroid[] = {15, 15, 30, 30, 45, 45};
+	int  damageAsteroid[] = {100, 100, 60, 60, 25, 25};
 
-
-
-
-
-
-
-
-
-
+	for (int i = 0; i < COUNT_ASTEROID; i++) {
+		this->asteroid[i].setPosX(i);
+		int res = (rand() % (70));
+		int randX = rand() % 6;
+		this->asteroid[i].setPosY(res);
+		this->asteroid[i].setSymbol(sAsteroid[randX]);
+		this->asteroid[i].setMaxHp(hpAsteroid[randX]);
+		this->asteroid[i].setHp(hpAsteroid[randX]);
+		this->asteroid[i].setAttack(damageAsteroid[randX]);
+	}
+}

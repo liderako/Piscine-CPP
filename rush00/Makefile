@@ -20,7 +20,7 @@ HEAD = Window.hpp\
 		Frame.hpp\
 		Asteroid.hpp\
 
-FLAGS = -c
+FLAGS = -Wall -Wextra -Werror
 
 SRC =	main.cpp\
 		Window.cpp\

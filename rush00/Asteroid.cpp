@@ -1,6 +1,6 @@
 #include "Asteroid.hpp"
 #include "ncurses.h"
-Asteroid::Asteroid(void) : GameObject(Vector2(0, 0), 1, '#', 10, 100) {
+Asteroid::Asteroid(void) : GameObject(Vector2(0, 0), 1, '#', 50, 25) {
 	return ;
 }
 
@@ -54,6 +54,7 @@ void 	Asteroid::setPosX(int const x) {
 void	Asteroid::dead(void) {
 	this->setPosX(rand() % 30);
 	this->setPosY((rand() % 2) + 3);
+	this->hp = this->maxHp;
 }
 
 int 	Asteroid::attacks() {
@@ -85,10 +86,14 @@ void 		Asteroid::takeDamage(int damage) {
 	{
 		if (this->hp - damage <= 0) {
 			this->hp = 0;
-			this->dead();
 		}
 		else {
 			this->hp -= damage;
 		}
 	}
+}
+
+
+void 		Asteroid::setMaxHp(int max) {
+	this->maxHp = max;
 }

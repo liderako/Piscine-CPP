@@ -8,8 +8,10 @@ class Player : public GameObject{
 private:
 	Frame 	frame;
 	int 	countTime;
-	int 	damage;
 	int 	timeout;
+	int		life;
+	int 	scope;
+	int 	ammo;
 public:
 	Player(void);
 	~Player(void);
@@ -21,7 +23,14 @@ public:
 	bool		moveLeft();
 	bool		moveDown();
 	bool		moveUp();
-	int 		getDamage();
+
+	int 		getScope();
+	int 		getLife();
+	int 		getAmmo();
+
+	void 		setScope(int scope);
+	void 		setLife(int life);
+
 	void 		takeDamage(int damage);
 	void 		recharge();
 	bool 		attack();

@@ -43,6 +43,14 @@ int 		GameObject::getHp() const {
 	return (this->hp);
 }
 
+int 		GameObject::getAttack(void) const {
+	return (this->attack);
+}
+
+void 		GameObject::setAttack(int attack) {
+	this->attack = attack;
+}
+
 void 		GameObject::setSymbol(int s) {
 	this->symbol = s;
 }

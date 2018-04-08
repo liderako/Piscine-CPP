@@ -7,6 +7,7 @@
 class Asteroid : public GameObject{
 private:
 	Frame frame;
+	int maxHp;
 public:
 	Asteroid(void);
 	~Asteroid(void);
@@ -20,6 +21,8 @@ public:
 	void		dead(void);
 	void 		setPosX(int const x);
 	void 		setPosY(int const x);
+
+	void 		setMaxHp(int max);
 	int 		attacks();
 };
 

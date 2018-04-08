@@ -32,10 +32,3 @@ public:
 };
 
 #endif
-
-/*
-	this->startXFlame = 100;
-	this->endXFlame = 250;
-	this->startYFlame = 0;
-	this->endYFlame = 83;
-*/

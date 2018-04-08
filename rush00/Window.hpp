@@ -8,27 +8,25 @@
 #include "Asteroid.hpp"
 #include "GameObject.hpp"
 
-//102
-// 362
-//
-
 #define MAX_SIZE_X 362
 #define MAX_SIZE_Y 102
-#define COUNT_ASTEROID 100
-# define GREEN "\033[32;1m"
+#define COUNT_ASTEROID 150
+
 class Win {
 	private:
 		// var
 		int 		height;
 		int 		width;
+		int 		maxScope;
 		char		map[103][363];
 		WINDOW 		*win;
-		WINDOW 		*downWin;
 		Frame		frame;
 		Frame 		frameStatic;
 		Asteroid 	*asteroid;
 		// functions
 		void 	initMap(void);
+		void 	putColor(char c, int color);
+		void 	initAsteroid(void);
 	public:
 		/* construct and destruct */
 		Win( void ); /* canonical */
@@ -44,14 +42,16 @@ class Win {
 		/* sets */
 			void setWidth( int const r );
 			void setHeight( int const r );
-			// void setWINDOW( WINDOW *w );
+			int getMaxScope() const;
 		/* actions */
 			void 	updateHorizont(void);
-			void 	render(void);
+			void 	render(Player &p);
 
 			void 	updatePositionPlayer(Player &p, int key);
 			void 	updatePositionObjcet(Player &p);
 			void 	winExit(void);
+
+			void 	checkSize();
 };
 
 #endif

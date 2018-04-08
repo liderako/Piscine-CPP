@@ -1,9 +1,11 @@
 #include "Player.hpp"
 
-Player::Player(void) : GameObject(Vector2(150, 60), 1, 'H', 100, 0) {
-	this->damage = 5;
-	this->timeout = 5;
+Player::Player(void) : GameObject(Vector2(150, 60), 1, 'W', 100, 15) {
+	this->timeout = 2;
 	this->countTime = 0;
+	this->scope = 0;
+	this->ammo = 1000;
+	this->life = 3;
 }
 
 Player::~Player(void) {
@@ -76,16 +78,38 @@ void 		Player::takeDamage(int damage) {
 			this->hp -= damage;
 		}
 	}
+	if (this->hp == 0 && this->life > 0) {
+		life--;
+		this->hp = 100;
+	}
 }
 
+
+int 		Player::getScope() {
+	return (this->scope);
+}
+int 		Player::getLife() {
+	return (this->life);
+}
+int 		Player::getAmmo() {
+	return (this->ammo);
+}
+
+void 		Player::setScope(int scope) {
+	this->scope = scope;
+}
+void 		Player::setLife(int life) {
+	this->life = life;
+}
 
 void 		Player::recharge(void) {
 	this->countTime++;
 }
 
 bool 		Player::attack() {
-	if (this->countTime >= 3) {
+	if (this->countTime >= 3 && this->ammo > 0) {
 		countTime = 0;
+		this->ammo--;
 		return (true);
 	}
 	return (false);

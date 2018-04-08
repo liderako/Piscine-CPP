@@ -3,8 +3,10 @@
 #include <ncurses.h>
 
 class Ncurses {
+private:
+	void 	init(void);
+	int 	someVarForCanonical;
 	public:
-int someVarForCanonical;
 		/* construct and destruct */
 		Ncurses( void ); /* canonical */
 		Ncurses( Ncurses const & f ); /* canonical */
