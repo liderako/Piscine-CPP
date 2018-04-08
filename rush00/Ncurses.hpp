@@ -13,6 +13,7 @@ int someVarForCanonical;
 		Ncurses & operator=( Ncurses const & f ); /* canonical */
 		/* actions */
 		void 	updateWindow(WINDOW *w);
+		void 	end(void);
 		int 	getCh();
 };
 

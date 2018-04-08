@@ -15,15 +15,16 @@ public:
 	~Player(void);
 	Player( Player const & f ); /* canonical */
 	Player & operator=( Player const & f );
+// actions
+
 	bool 		moveRigth();
 	bool		moveLeft();
 	bool		moveDown();
 	bool		moveUp();
-
 	int 		getDamage();
-	int 		getCountTime();
 	void 		takeDamage(int damage);
-	void 		setCountTime(int c);
+	void 		recharge();
+	bool 		attack();
 };
 
 #endif

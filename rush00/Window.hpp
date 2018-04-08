@@ -8,8 +8,12 @@
 #include "Asteroid.hpp"
 #include "GameObject.hpp"
 
-#define MAX_SIZE_X 364
-#define MAX_SIZE_Y 84
+//102
+// 362
+//
+
+#define MAX_SIZE_X 362
+#define MAX_SIZE_Y 102
 #define COUNT_ASTEROID 100
 # define GREEN "\033[32;1m"
 class Win {
@@ -17,9 +21,11 @@ class Win {
 		// var
 		int 		height;
 		int 		width;
-		char		map[85][385];
+		char		map[103][363];
 		WINDOW 		*win;
+		WINDOW 		*downWin;
 		Frame		frame;
+		Frame 		frameStatic;
 		Asteroid 	*asteroid;
 		// functions
 		void 	initMap(void);
@@ -41,7 +47,7 @@ class Win {
 			// void setWINDOW( WINDOW *w );
 		/* actions */
 			void 	updateHorizont(void);
-			void 	updateDisplay(void);
+			void 	render(void);
 
 			void 	updatePositionPlayer(Player &p, int key);
 			void 	updatePositionObjcet(Player &p);

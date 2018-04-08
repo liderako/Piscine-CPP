@@ -1,10 +1,6 @@
 #include "Asteroid.hpp"
 #include "ncurses.h"
-Asteroid::Asteroid(void) : GameObject(Vector2(0, 0), 1, '#', 10, 50) {
-	return ;
-}
-
-Asteroid::Asteroid(int xSpawn, int ySpawn) : GameObject(Vector2(xSpawn, ySpawn), 1, '#', 10, 50) {
+Asteroid::Asteroid(void) : GameObject(Vector2(0, 0), 1, '#', 10, 100) {
 	return ;
 }
 

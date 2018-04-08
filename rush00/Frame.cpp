@@ -11,7 +11,7 @@ Frame::Frame(void) {
 	this->startX = 100;
 	this->endX = 250;
 	this->startY = 0;
-	this->endY = 83;
+	this->endY = 90;
 }
 
 Frame::Frame( Frame const & f ) {

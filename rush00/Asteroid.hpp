@@ -8,7 +8,6 @@ class Asteroid : public GameObject{
 private:
 	Frame frame;
 public:
-	Asteroid(int xSpawn, int ySpawn);
 	Asteroid(void);
 	~Asteroid(void);
 	Asteroid( Asteroid const & f ); /* canonical */

@@ -12,7 +12,6 @@ Ncurses::Ncurses( Ncurses const & Ncurses) {
 }
 
 Ncurses::~Ncurses( void ) {
-	endwin();
 }
 
 /* operator */
@@ -22,9 +21,14 @@ Ncurses & Ncurses::operator=( Ncurses const & ncurses ) {
 }
 
 int 	Ncurses::getCh() {
+	timeout(150);
 	return (getch());
 }
 
 void 	Ncurses::updateWindow(WINDOW *w) {
 	wrefresh(w);
+}
+
+void 	Ncurses::end(void) {
+	endwin();
 }

@@ -1,16 +1,20 @@
 #include "Window.hpp"
 #include <ncurses.h>
-
+#include <sstream>
 /* construct and destruct */
-Win::Win( void ) {
-	char s[] = {'#','$', '@', '%', '&', '*', 'D'};
+Win::Win( void ) : frameStatic(100, 250, 90, 100) {
+	char s[] = {'#','$', '@', '%', '&', 'B', 'D'};
 	getmaxyx(stdscr, this->height, this->width);
 	if (this->height != MAX_SIZE_Y || this->width != MAX_SIZE_X){
 		endwin();
+		std::cout << this->height  << "\n" << this->width;
 		std::cout << "Error size window\n";
 		std::exit(-1);
 	}
 	this->win = newwin(this->height, this->width, 0, 0);
+	
+	this->downWin = newwin(250, 100, 100, 90);
+
 	this->asteroid = new Asteroid[COUNT_ASTEROID];
 	for (int i = 0; i < COUNT_ASTEROID; i++) {
 		this->asteroid[i].setPosX(i);
@@ -89,9 +93,8 @@ void 	Win::updatePositionPlayer(Player &p, int key) {
 		this->map[p.getPosition().getY()][p.getPosition().getX()] = p.getSymbol();
 	}
 	else if (key == ' ') {
-		if (p.getCountTime() >= 3) {
+		if (p.attack() == true) {
 			this->map[p.getPosition().getY() - 1][p.getPosition().getX()] = '^';
-			p.setCountTime(0);
 		}
 	}
 }
@@ -125,26 +128,74 @@ void 	Win::updatePositionObjcet(Player &p) {
 	}
 }
 
-void 	Win::updateDisplay() {
+void 	Win::render() {
 	int 	y;
 	int 	x;
-	//printf("\r%s%s%d%s%s", GREEN, "Loading ",
-				// RT->loading_progress, "%", RESET);
+	int 	flag = 0;
+
 	y = 0;
 	while (y < this->height) {
 		x = 0;
 		while (x < this->width) {
 			if ((this->frame.endHorizontX(x, y)) == true) {
+				attron(COLOR_PAIR(5));
 				printw("_");
+				attroff(COLOR_PAIR(5));
 			}
 			else if ((this->frame.endHorizontY(x, y)) == true) {
+				attron(COLOR_PAIR(5));
+				printw("|");
+				attroff(COLOR_PAIR(5));
+			}
+			else if ((this->frameStatic.endHorizontX(x, y)) == true ) {
+				printw("_");
+			}
+			else if ((this->frameStatic.endHorizontY(x, y)) == true) {
 				printw("|");
 			}
-			else if (y > this->frame.getEndY() - 2 && x >= this->frame.getStartX()) {
+			else if (y > this->frame.getEndY() - 2 && y < this->frameStatic.getStartY() + 1 && x >= this->frame.getStartX() && x <= this->frame.getEndX()) {
 				printw(" ");
 			}
 			else {
-				printw("%c", this->map[y][x]);
+				if (this->map[y][x] == ','){
+					attron(COLOR_PAIR(3));
+					printw("%c", this->map[y][x]);
+					attroff(COLOR_PAIR(3));
+				}
+				else if (this->map[y][x] == '*') {
+					attron(COLOR_PAIR(2));
+					printw("%c", this->map[y][x]);
+					attroff(COLOR_PAIR(2));
+				}
+				else if (this->map[y][x] == '.') {
+					attron(COLOR_PAIR(1));
+					printw("%c", this->map[y][x]);
+					attroff(COLOR_PAIR(1));
+				}
+				else if (y >= this->frameStatic.getStartY() && y < this->frameStatic.getEndY() && x >= this->frameStatic.getStartX() && x <= this->frameStatic.getEndX()) {
+					if (x - 2 == this->frameStatic.getStartX() && y - 2 == this->frameStatic.getStartY()) {
+						printw("Scope: %10d",10);
+						x += 16;
+					}
+					else if (x - 2 == this->frameStatic.getStartX() && y - 4 == this->frameStatic.getStartY()) {
+						printw("life: %11d",10);
+						x += 16;
+					}
+					else if (x - 2 == this->frameStatic.getStartX() && y - 6 == this->frameStatic.getStartY()) {
+						printw("Hp: %13d",10);
+						x += 16;
+					}
+					else if (x - 2 == this->frameStatic.getStartX() && y - 8 == this->frameStatic.getStartY()) {
+						printw("Ammo: %11d",10);
+						x += 16;
+					}
+					else {
+						printw(" ");
+					}
+				}
+				else {
+					printw("%c", this->map[y][x]);
+				}
 			}
 			x++;
 		}
@@ -177,8 +228,9 @@ void 	Win::initMap() {
 		x = 1;
 		while (x < this->width) {
 			if (x < this->frame.getStartX() || x > this->frame.getEndX()) {
-				if (rand() % 125 == 0)
+				if (rand() % 125 == 0) {
 					this->map[y][x] = '.';
+				}
 				else if (rand() % 666 == 0) {
 					this->map[y][x] = '*';
 				}
