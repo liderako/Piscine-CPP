@@ -32,17 +32,17 @@ void * serialize(void) {
 	randomstring(data->s1);
 	data->n = rand() % 3;
 	randomstring(data->s2);
-	// std::cout << data->s1 << std::endl;
-	// std::cout << data->n << std::endl;
-	// std::cout << data->s2 << std::endl;
-	return (reinterpret_cast<void*>(data));
+	std::cout << data->s1 << std::endl;
+	std::cout << data->n << std::endl;
+	std::cout << data->s2 << std::endl;
+	return (static_cast<void*>(data));
 }
 
 Data 	*deserialize( void * raw ) {
 	Data *data = new Data();
 	SerData  *ser;
 
-	ser = reinterpret_cast<SerData*>(raw);
+	ser = static_cast<SerData*>(raw);
 	data->s1 = static_cast<std::string>(ser->s1);
 	data->s2 = static_cast<std::string>(ser->s2);
 	data->n = ser->n;
