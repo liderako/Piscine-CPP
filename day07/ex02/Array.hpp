@@ -1,7 +1,7 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-template<typename T = int>
+template<typename T>
 class 	Array {
 	public:
 		T 		*array;
@@ -23,6 +23,9 @@ class 	Array {
 		Array<T>(unsigned int n) {
 			this->array = new T[n];
 			this->len = n;
+			for (int i = 0; i < n; i++ {
+				this->array[i] = T();
+			}
 		}
 	Array<T> & operator=(Array<T> const & f) {
 		delete [] this->array;
