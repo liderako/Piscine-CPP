@@ -45,6 +45,8 @@ void 	Convert::printInt(std::string s) {
 void 	Convert::printDouble(std::string s) {
 	try {
 		int len = getLenDecimals(s);
+		if (len > 15)
+			len = 15;
 		this->d = static_cast<double>(std::stod(s));
 		std::cout << "double: " << std::fixed << std::setprecision(len) << this->d << "\n";
 	}
@@ -56,6 +58,8 @@ void 	Convert::printDouble(std::string s) {
 void 	Convert::printFloat(std::string s) {
 	try {
 		int len = getLenDecimals(s);
+		if (len > 8)
+			len = 8;
 		this->c = static_cast<float>(std::stof(s));
 		std::cout << "float: " << std::fixed << std::setprecision(len) << this->c << "f\n";
 	}

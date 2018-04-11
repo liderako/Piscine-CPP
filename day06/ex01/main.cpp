@@ -35,14 +35,14 @@ void * serialize(void) {
 	std::cout << data->s1 << std::endl;
 	std::cout << data->n << std::endl;
 	std::cout << data->s2 << std::endl;
-	return (static_cast<void*>(data));
+	return (reinterpret_cast<void*>(data));
 }
 
 Data 	*deserialize( void * raw ) {
 	Data *data = new Data();
 	SerData  *ser;
 
-	ser = static_cast<SerData*>(raw);
+	ser = reinterpret_cast<SerData*>(raw);
 	data->s1 = static_cast<std::string>(ser->s1);
 	data->s2 = static_cast<std::string>(ser->s2);
 	data->n = ser->n;
